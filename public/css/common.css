@@ -1,0 +1,54 @@
+/* Reset spacing */
+#myslidemenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top level nav items */
+#myslidemenu > ul > li {
+    float: left;
+    position: relative;
+    background: #003366;
+    margin-right: 1px;
+}
+
+#myslidemenu > ul > li > a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Hide all submenus by default */
+#myslidemenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    min-width: 220px;
+    z-index: 1000;
+    border: 1px solid #ccc;
+}
+
+/* Show submenu on hover */
+#myslidemenu ul li:hover > ul {
+    display: block;
+}
+
+/* Style submenu links */
+#myslidemenu ul li ul li {
+    position: relative;
+}
+
+#myslidemenu ul li ul li a {
+    display: block;
+    padding: 8px 12px;
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+#myslidemenu ul li ul li a:hover {
+    background-color: #f1f1f1;
+}

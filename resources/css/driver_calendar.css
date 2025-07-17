@@ -1,0 +1,9 @@
+	#Content div.box { padding:5px; }
+	#Content div.name { border:1px solid #999999; background-color:#cccccc; padding:10px; font-weight:bold; }
+	#Content div.search { padding:10px; border-left:1px solid #999999; border-right:1px solid #999999; border-bottom:1px solid #999999; background-color:#FAFAFA; }
+	#Content div.content-1 { padding:10px; border-left:1px solid #999999; border-right:1px solid #999999; }
+	#Content div.content-2 { padding:10px; border-left:1px solid #999999; border-right:1px solid #999999; border-bottom:1px solid #999999; }
+	#Content div.button { padding:10px; text-align:center; }
+	
+	#Content td.table_head { background-color:#97b4cd; border-right:1px solid #799bb8; border-bottom:1px solid #799bb8; padding:5px; font-weight:bold; }
+	#Content td.table_row { border-right:1px solid #799bb8; border-bottom:1px solid #799bb8; padding:5px; }

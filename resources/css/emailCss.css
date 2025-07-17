@@ -1,0 +1,5 @@
+body, div, td { font-family:"lucida grande",tahoma,verdana,arial,sans-serif; }
+div { font-size:10px; }
+
+#Content { padding:3px; }
+#Content div.name { font-weight:bold; }

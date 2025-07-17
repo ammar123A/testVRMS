@@ -1,0 +1,66 @@
+#IdCalendar table {
+	border-left:1px solid #a7a7a7;
+	border-top:1px solid #a7a7a7;
+}
+
+#IdCalendar td.hari {
+	text-align:center;
+	padding:10px;
+	background-color:#b4b4b4;
+	color:#ffffff;
+	font-weight:bold;
+	border-right:1px solid #a7a7a7;
+	border-bottom:1px solid #a7a7a7;
+}
+
+#IdCalendar td.hari-x {
+	height:80px;
+	padding:10px;
+	background-color:#c1c1c1;
+	border-right:1px solid #a7a7a7;
+	border-bottom:1px solid #a7a7a7;
+}
+
+#IdCalendar td.hari-y {
+	height:80px;
+	padding:10px;
+	background-color:#f4f4f4;
+	border-right:1px solid #a7a7a7;
+	border-bottom:1px solid #a7a7a7;
+}
+
+#IdCalendar td.hari-z {
+	height:80px;
+	padding:10px;
+	background-color:#EEF79C;
+	border-right:1px solid #a7a7a7;
+	border-bottom:1px solid #a7a7a7;
+}
+
+#IdCalendar div.tarikh {
+	float:right;
+	border:1px solid #a7a7a7;
+	background-color:#e6e6e6;
+	width:20px;
+	padding:5px;
+	text-align:center;
+	font-weight:bold;
+	margin-top:-30px;
+	margin-right:-5px;
+}
+
+#IdCalendar div.list {
+	text-align:center;
+	font-size:30px;
+}
+
+#IdCalendar td.hari-y:hover {
+	background-color:#eefaeb;
+}
+
+
+#IdCalendar div.list a {
+	color:#0000ff;
+	text-decoration:none;
+	
+}

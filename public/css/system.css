@@ -1,0 +1,39 @@
+#cssBody { padding:3px; }
+#cssBody h1 { margin-left:5%; font-size:30px; font-style:italic; }
+
+/*#Menu { float:right; width:79%; margin-bottom:10px; }*/
+#Footer {
+		width:96%;
+		margin-left:2%;
+		margin-top: 2%;
+		background-color:#2d0662;
+		color:#ffffff;
+		padding:3px;
+		text-align:center;
+		height:30px;
+	}
+	
+
+#Menu { width:96%; margin-bottom:1%; margin-left:2%; margin-top:2%;  }
+#Content { width:96%; margin-left:2%; margin-left: 2%; }
+
+#Content .td-left-search { background-color:#E8E6E6; text-align:right; color:#000000; font-style:italic; }
+
+/*#Content { float:right; width:79%;}*/
+	#Content div.box { padding:0px; }
+	#Content div.name { border:1px solid #737373; background-color:#cccccc; padding:5px; font-weight:bold; color:#000000; }
+	#Content div.search { padding:10px; border-left:1px solid #999999; border-right:1px solid #999999; border-bottom:1px solid #999999; background-color:#FAFAFA; }
+	#Content div.button { padding:10px; text-align:center; }	
+	#Content div.content-1, div.content-2 { padding:2px; border-left:1px solid #737373; border-right:1px solid #737373; background-color:#ffffff; }
+	#Content div.content-2 { border-bottom:1px solid #737373; }
+	/*#Content td.table_head { background-color:#97b4cd; border-right:1px solid #799bb8; border-bottom:1px solid #799bb8; padding:3px; font-weight:bold; }*/
+	#Content td.table_head { color:#ffffff; background-color:#4B8FC9; border-right:1px solid #ffffff; border-bottom:1px solid #ffffff; padding:5px; font-weight:bold; }
+	#Content td.table_row { border-right:1px dotted #cccccc; border-bottom:1px dotted #cccccc; padding:3px; }
+	
+	#Content div.title { border-bottom:1px dotted #ccc; padding:1%; font-weight:bold; margin-bottom:20px; }
+	
+	#Content h3 a.title { font-style:italic; text-decoration:none; font-weight:bold; background-color:#bfd6d5; }
+	#Content .form-highlight { background-color:#fcf9c0; }
+	
+	#Content .td-left { background-color:#E8E6E6; }
+	

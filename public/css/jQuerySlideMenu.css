@@ -1,0 +1,67 @@
+.jqueryslidemenu {
+	font:normal 11px "lucida grande",tahoma,verdana,arial,sans-serif;
+	background-image: url(../images/purple.png);
+	background-position:middle;
+	width:100%;
+}
+
+.jqueryslidemenu ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
+/*Top level list items*/
+.jqueryslidemenu ul li {
+	position: relative !important;
+	display: inline;
+	float:left;
+}
+
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a {
+	display: block;
+	color: white;
+	padding: 10px 10px;
+	text-decoration: none;
+	font-weight:bold;
+}
+* html .jqueryslidemenu ul li a{ display: inline-block; }
+.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{ color: white; }
+.jqueryslidemenu ul li a:hover{
+		/*background: #e59406;*/
+		background-image: url(../images/bg-menu-hover.png);
+		background-position:middle;
+		color: white;
+	}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+		position: absolute;
+		left: 0;
+		display: block;
+		visibility: hidden;
+		z-index:1;
+	}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{ display: list-item; float: none; }
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{ top: 0; }
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a {
+	font: normal 11px "lucida grande", tahoma,verdana,arial,sans-serif;
+	width: 200px;
+	padding: 10px;
+	border-top-width: 0;
+	background-color:#2d0662;
+	border-right:1px solid;
+}
+.jqueryslidemenuz ul li ul li a:hover{ background: #eff9ff; color: black; }
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{ position: absolute; top: 12px; right: 7px; }
+.rightarrowclass{ position: absolute; top: 6px; right: 5px; }

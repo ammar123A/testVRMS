@@ -1,0 +1,28 @@
+#Content div.search-box {
+	padding:5px;
+	/*background-color:#F5F4E9;*/
+	background-color:#f4f4f4;
+	border-top:1px solid #999999;
+	border-right:1px solid #999999;
+	border-left:1px solid #999999;
+	border-bottom:1px solid #999999;
+}
+#Content div.search-box div.name { font-weight:bold; }
+
+#IdReports {
+	display:none;
+}
+
+	#IdReports td.table_head {
+		font-weight:bold;
+		padding:5px;
+		background-color:#adc0d0;
+		border-right:1px solid #20619a;
+		border-bottom:1px solid #20619a;
+	}
+	
+	#IdReports td.table_row {
+		padding:5px;
+		border-right:1px dotted #999999;
+		border-bottom:1px dotted #20619a;
+	}

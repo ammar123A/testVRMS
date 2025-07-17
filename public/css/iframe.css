@@ -1,0 +1,7 @@
+input, select, div, label, span, td, table {
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+}
+
+td.table_head { background-color:#97b4cd; border-right:1px solid #799bb8; border-bottom:1px solid #799bb8; padding:5px; font-weight:bold; }
+td.table_row { border-right:1px solid #799bb8; border-bottom:1px solid #799bb8; padding:5px; }
