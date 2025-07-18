@@ -16,6 +16,9 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\TechnicianController;
+use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\PartController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
@@ -108,6 +111,16 @@ Route::post('/supervisor/permission/store', [PermissionController::class, 'store
 Route::get('/supervisor/company', [CompanyController::class, 'index'])->name('company.index');
 Route::post('/supervisor/company/store', [CompanyController::class, 'store'])->name('company.store');
 
+Route::get('/supervisor/technician', [TechnicianController::class, 'index'])->name('technician.index');
+Route::post('/supervisor/technician/store', [TechnicianController::class, 'store'])->name('technician.store');
+
+Route::get('supervisor/workshops', [WorkshopController::class, 'index'])->name('workshop.index');
+Route::post('supervisor/workshops/store', [WorkshopController::class, 'store'])->name('workshop.store');
+Route::put('/workshop/{id}', [WorkshopController::class, 'update'])->name('workshop.update');
+Route::delete('/workshop/{id}', [WorkshopController::class, 'destroy'])->name('workshop.destroy');
+
+Route::get('supervisor/parts', [PartController::class, 'index'])->name('parts.index');
+Route::post('supervisor/parts/store', [PartController::class, 'store'])->name('parts.store');
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('main');
 
 // Route::get('/', function () {

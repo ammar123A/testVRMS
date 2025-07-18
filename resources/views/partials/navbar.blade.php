@@ -46,6 +46,9 @@
                 <li><a href="{{ url('/supervisor/leave') }}">leave</a></li>
                 <li><a href="{{ url('/supervisor/permission') }}">permission</a></li>
                 <li><a href="{{ url('/supervisor/company') }}">company</a></li>
+                <li><a href="{{ url('/supervisor/technician') }}">technician</a></li>
+                <li><a href="{{ url('/supervisor/workshops') }}">workshops</a></li>
+                <li><a href="{{ url('/supervisor/parts') }}">Parts & Item</a></li>
             </ul>
         </li>
         <li><a href="#">Maintenance</a></li>
