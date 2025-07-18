@@ -4,6 +4,19 @@
 <div class="container">
     <h4>Register New Vehicle</h4>
 
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+
+        <script>
+            setTimeout(function () {
+                const alert = document.getElementById('success-alert');
+                if (alert) {
+                    alert.style.display = 'none';
+                }
+            }, 2000);
+        </script>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>

@@ -36,10 +36,10 @@ public function store(Request $request)
 {
     $request->validate([
         'em_id' => 'required|exists:fl_driver,em_id',
-        'name' => 'required|string|max:255',
+        'name' => 'nullable|string|max:255',
         'start_date' => 'required|date',
         'end_date' => 'required|date|after_or_equal:start_date',
-        'reason' => 'nullable|string|max:255',
+        'reason' => 'required|string|max:255',
     ]);
 
     FlLeave::create($request->only('em_id', 'name', 'start_date', 'end_date', 'reason'));

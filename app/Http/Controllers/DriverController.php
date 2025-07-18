@@ -28,7 +28,7 @@ class DriverController extends Controller
     {
         $request->validate([
             'em_id' => 'required|string|max:20|',
-            'name' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'license_number' => 'nullable|string|max:20',
             'ic_number' => 'nullable|string|max:20',

@@ -7,6 +7,15 @@
     {{-- Display success messages --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
+
+        <script>
+            setTimeout(function () {
+                const alert = document.getElementById('success-alert');
+                if (alert) {
+                    alert.style.display = 'none';
+                }
+            }, 2000);
+        </script>
     @endif
 
     {{-- Display validation errors --}}

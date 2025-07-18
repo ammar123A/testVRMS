@@ -6,6 +6,15 @@
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
+
+        <script>
+            setTimeout(function () {
+                const alert = document.getElementById('success-alert');
+                if (alert) {
+                    alert.style.display = 'none';
+                }
+            }, 2000);
+        </script>
     @endif
 
     @if($errors->any())
@@ -42,10 +51,10 @@
                 <label class="form-label">Staff No</label>
                 <input type="text" name="em_id" class="form-control" required>
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" required>
-            </div>
+            </div> -->
             <div class="col-md-2">
                 <label class="form-label">Start Date</label>
                 <input type="date" name="start_date" class="form-control" required>
@@ -72,6 +81,7 @@
                 <th>Staff No</th>
                 <th>Name</th>
                 <th>Date</th>
+                <th>Reason</th>
             </tr>
         </thead>
         <tbody>

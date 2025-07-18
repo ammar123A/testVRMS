@@ -14,6 +14,8 @@ use App\Http\Controllers\WorkorderCalendarController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\CompanyController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
@@ -99,6 +101,12 @@ Route::post('/supervisor/driver/store', [DriverController::class, 'store'])->nam
 
 Route::get('/supervisor/leave', [LeaveController::class, 'index'])->name('leave.index');
 Route::post('/supervisor/leave/store', [LeaveController::class, 'store'])->name('leave.store');
+
+Route::get('/supervisor/permission', [PermissionController::class, 'index'])->name('permission.index');
+Route::post('/supervisor/permission/store', [PermissionController::class, 'store'])->name('permission.store');
+
+Route::get('/supervisor/company', [CompanyController::class, 'index'])->name('company.index');
+Route::post('/supervisor/company/store', [CompanyController::class, 'store'])->name('company.store');
 
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('main');
 

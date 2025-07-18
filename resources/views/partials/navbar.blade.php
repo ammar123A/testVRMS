@@ -44,6 +44,8 @@
                 <li><a href="{{ url('/supervisor/vehicle') }}">Vehicle</a></li>
                 <li><a href="{{ url('/supervisor/driver') }}">Driver</a></li>
                 <li><a href="{{ url('/supervisor/leave') }}">leave</a></li>
+                <li><a href="{{ url('/supervisor/permission') }}">permission</a></li>
+                <li><a href="{{ url('/supervisor/company') }}">company</a></li>
             </ul>
         </li>
         <li><a href="#">Maintenance</a></li>
