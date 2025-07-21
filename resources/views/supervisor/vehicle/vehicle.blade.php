@@ -93,7 +93,7 @@
                         <td>{{ $vehicle->type }}</td>
                         <td>{{ $vehicle->department }}</td>
                         <td>{{ $vehicle->registration_date }}</td>
-                        <td>{{ $vehicle->created_at->format('Y-m-d H:i') }}</td>
+                        <td>{{ $vehicle->created_at->format('Y-m-d H:i')}}</td>
                     </tr>
                 @empty
                     <tr>

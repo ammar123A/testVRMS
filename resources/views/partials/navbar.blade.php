@@ -51,7 +51,17 @@
                 <li><a href="{{ url('/supervisor/parts') }}">Parts & Item</a></li>
             </ul>
         </li>
-        <li><a href="#">Maintenance</a></li>
+        <li><a href="#">Maintenance</a>
+            <ul>
+                <li><a href="{{ url('/complaint/create') }}">Create Complaint</a></li>
+                <li><a href="{{ url('/complaint/history') }}">Complaint History</a></li>
+                <li><a href="{{ url('/maintenance/verify-r/history') }}">History</a></li>
+                <li><a href="{{ url('/maintenance/verify-wr/history') }}">History 2</a></li>
+                <li><a href="{{ url('/maintenance/vehicle/preventive') }}">Preventive</a></li>
+                <li><a href="{{ url('/reports/maintenance/monthly-vehicle-cost') }}">Monthly Vehicle Cost</a></li>
+                <li><a href="{{ url('/reports/maintenance/monthly-complaints') }}">Monthly Complaints</a></li>
+            </ul>
+        </li>
         <li><a href="#">System Administration</a></li>
         <li><a href="#">Statistic</a></li>
 

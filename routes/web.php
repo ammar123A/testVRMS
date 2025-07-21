@@ -19,6 +19,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TechnicianController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\PreventiveController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
@@ -121,6 +124,24 @@ Route::delete('/workshop/{id}', [WorkshopController::class, 'destroy'])->name('w
 
 Route::get('supervisor/parts', [PartController::class, 'index'])->name('parts.index');
 Route::post('supervisor/parts/store', [PartController::class, 'store'])->name('parts.store');
+
+Route::get('/complaint/create', [ComplaintController::class, 'create'])->name('complaint.create');
+Route::post('/complaint/store', [ComplaintController::class, 'store'])->name('complaint.store');
+Route::get('/complaint/history', [ComplaintController::class, 'history'])->name('complaint.history');
+Route::get('/vehicle/details/{id}', [ComplaintController::class, 'vehicleDetails'])->name('vehicle.details');
+Route::get('/complaint/history/search', [ComplaintController::class, 'histroysearch'])->name('complaint.history.search');
+
+Route::get('/maintenance/verify-r/history', [ComplaintController::class, 'verifyHistory'])->name('maintenance.verify.history');
+Route::get('/maintenance/verify-wr/history', [ComplaintController::class, 'verifyWrHistory'])->name('maintenance.verifywr.history');
+Route::get('/maintenance/verify-wr/search', [ComplaintController::class, 'verifyWrSearch'])->name('complaints.verifywr.search');
+Route::get('/maintenance/vehicle/preventive', [PreventiveController::class, 'index'])->name('preventive.index');
+
+Route::get('/reports/maintenance/monthly-vehicle-cost', [ReportReservationController::class, 'monthlyVehicleCost'])->name('reports.maintenance.monthlyVehicleCost');
+Route::post('/reports/maintenance/monthly-vehicle-cost/ajax', [ReportReservationController::class, 'monthlyVehicleCostAjax'])->name('reports.maintenance.monthlyVehicleCostAjax');
+
+Route::get('/reports/maintenance/monthly-complaints', [ReportReservationController::class, 'monthlyComplaintGraph'])->name('reports.maintenance.monthlyComplaintGraph');
+Route::post('/reports/maintenance/monthly-complaints/ajax', [ReportReservationController::class, 'monthlyComplaintGraphAjax'])->name('reports.maintenance.monthlyComplaintGraphAjax');
+
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('main');
 
 // Route::get('/', function () {

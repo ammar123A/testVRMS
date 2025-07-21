@@ -10,6 +10,7 @@ use App\Models\FlRequest;
 use App\Models\FlDriver;
 use App\Models\DV;
 use App\Models\WorkOrder;
+use App\Models\FlVehicle;
 use Carbon\Carbon;
 
 class ReportReservationController extends Controller
@@ -416,6 +417,41 @@ class ReportReservationController extends Controller
             ->get();
 
         return view('reports.partials.charted_trip_result', compact('data'));
+    }
+
+    public function monthlyVehicleCost()
+    {
+        $vehicleTypes = FlVehicle::distinct()->pluck('type'); // Or manually define if static
+        return view('reports.maintenance.monthly_vehicle_maintenance_cost', compact('vehicleTypes'));
+    }
+
+    public function monthlyVehicleCostAjax(Request $request)
+    {
+        // Logic to fetch and return the table HTML based on filters
+        // You can also return a partial view here
+        return view('reports.maintenance.partials.monthly_cost_result', [
+            'data' => [] // Example placeholder
+        ]);
+    }
+
+    public function monthlyComplaintGraph()
+    {
+        return view('reports.maintenance.number_monthly_complaints');
+    }
+
+    public function monthlyComplaintGraphAjax(Request $request)
+    {
+        $year = $request->input('s_year');
+
+        // Example result: data from your complaint table, grouped by month
+        $data = FlComplaint::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->whereYear('created_at', $year)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        // Return a partial view or HTML table/chart directly
+        return view('reports.maintenance.partials.monthly_complaint_graph', compact('data', 'year'));
     }
 
 }
