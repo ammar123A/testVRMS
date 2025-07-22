@@ -21,7 +21,7 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\PreventiveController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SystemAdminController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
@@ -141,6 +141,11 @@ Route::post('/reports/maintenance/monthly-vehicle-cost/ajax', [ReportReservation
 
 Route::get('/reports/maintenance/monthly-complaints', [ReportReservationController::class, 'monthlyComplaintGraph'])->name('reports.maintenance.monthlyComplaintGraph');
 Route::post('/reports/maintenance/monthly-complaints/ajax', [ReportReservationController::class, 'monthlyComplaintGraphAjax'])->name('reports.maintenance.monthlyComplaintGraphAjax');
+
+Route::get('/system-admin/user', [SystemAdminController::class, 'userPage'])->name('system-admin.user');
+Route::get('/system-admin/user/ajax', [SystemAdminController::class, 'fetchUserData'])->name('system-admin.user.ajax');
+Route::get('/system-admin/user/register', [SystemAdminController::class, 'registerForm'])->name('system-admin.user.register');
+Route::post('/system-admin/user/store', [SystemAdminController::class, 'store'])->name('system-admin.user.store');
 
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('main');
 

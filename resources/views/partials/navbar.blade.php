@@ -62,7 +62,11 @@
                 <li><a href="{{ url('/reports/maintenance/monthly-complaints') }}">Monthly Complaints</a></li>
             </ul>
         </li>
-        <li><a href="#">System Administration</a></li>
+        <li><a href="#">System Administration</a>
+            <ul>
+                <li><a href="{{ url('/system-admin/user') }}">User</a></li>
+            </ul>
+        </li>
         <li><a href="#">Statistic</a></li>
 
         <!-- LOGOUT LINK -->
