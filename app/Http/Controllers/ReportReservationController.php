@@ -118,7 +118,7 @@ class ReportReservationController extends Controller
             }
         }
 
-        return view('reports.reservation_by_vehicle_request', [
+        return view('reports.reservation_by_vehicle_type', [
             'reportData' => $reportData,
             'vehicleTypes' => $vehicleTypes,
             'selectedYear' => $year,
@@ -349,14 +349,7 @@ class ReportReservationController extends Controller
         ]);
     }
 
-    // public function driverTripView(Request $request)
-    // {
-    //     $sites = Site::orderBy('name')->get();
-    //     return view('reports.driver_trip', [
-    //         'sites' => $sites,
-    //         'today' => now()->format('d-m-Y')
-    //     ]);
-    // }
+
 
     public function driverTripAjax(Request $request)
     {
@@ -399,13 +392,7 @@ class ReportReservationController extends Controller
         return view('reports.partials.work_order_charted_result', compact('data'));
     }
 
-    public function chartedTripReport()
-{
-    $sites = Site::orderBy('name')->get();
-    $today = now()->format('d-m-Y');
 
-    return view('reports.charted_trip', compact('sites', 'today'));
-}
 
     public function ajaxChartedTrip(Request $request)
     {

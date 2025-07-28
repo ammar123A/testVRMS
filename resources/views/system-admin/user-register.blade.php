@@ -42,7 +42,7 @@
         {{-- Submit --}}
         <div class="text-end">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{ route('system-admin.user.register') }}" class="btn btn-secondary">Back</a>
+            <a href="{{ route('system-admin.user') }}" class="btn btn-secondary">Back</a>
         </div>
     </form>
 </div>

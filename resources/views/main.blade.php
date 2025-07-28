@@ -3,7 +3,6 @@
 @section('content')
 
     <div id="Menu">
-        <div>@include('partials.menu')</div>
         <div class="clock"></div>
     </div>
 

@@ -68,7 +68,9 @@ Route::get('/fleet/allocation/{id}/edit', [AllocationController::class, 'edit'])
 Route::get('/allocation/recommend', [RecommendReservationController::class, 'index'])->name('recommend.index');
 Route::get('/allocation/recommend/history', [RecommendReservationController::class, 'history'])->name('fleet.history');
 
+Route::get('/reservation-management/reservation/create_request', [ReservationAdhocController::class, 'create'])->name('reservation.create');
 Route::get('/reservation-management/history', [ReservationAdhocController::class, 'index'])->name('reservation.history');
+Route::get('/reservation-management/reservation/table', [ReservationAdhocController::class, 'RegisterTable'])->name('reservation.table');
 Route::get('/reservation-management/history/search', [ReservationAdhocController::class, 'search'])->name('reservation.history.search');
 
 

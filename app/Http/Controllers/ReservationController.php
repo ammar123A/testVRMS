@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
+
+        public function index()
+    {
+        // $departments = [];
+        // $vehicles = FlVehicle::orderBy('created_at', 'desc')->get();
+
+        return view('supervisor.vehicle.vehicle', compact('departments', 'vehicles'));
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([

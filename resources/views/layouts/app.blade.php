@@ -7,7 +7,10 @@
     {{-- Bootstrap CSS --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    {{-- Your Custom CSS --}}
+    {{-- Font Awesome (for icons like caret/arrow) --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/system.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui-1.8.16.custom.css') }}">
@@ -23,12 +26,13 @@
     <script src="{{ asset('js/date.js') }}"></script>
     <script src="{{ asset('js/javascript.js') }}"></script>
 
-    {{-- Bootstrap JS Bundle --}}
+    {{-- Bootstrap JS Bundle (includes Popper) --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body style="background-color:#f8f9fa;" onload="updateClock(); setInterval('updateClock()', 1000);">
 
+    {{-- Header --}}
     <header class="bg-white border-bottom py-3 px-4 mb-4 shadow-sm d-flex align-items-center">
         <img src="{{ asset('images/utm.png') }}" height="60" alt="UTM Logo" class="me-3">
         <div>
@@ -37,7 +41,7 @@
         </div>
     </header>
 
-    {{-- Navigation --}}
+    {{-- Navigation Menu --}}
     @include('partials.navbar')
 
     {{-- Main Content --}}

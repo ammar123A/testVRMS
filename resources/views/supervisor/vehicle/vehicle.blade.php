@@ -82,7 +82,6 @@
                     <th>Type</th>
                     <th>Department</th>
                     <th>Registration Date</th>
-                    <th>Created At</th>
                 </tr>
             </thead>
             <tbody>
@@ -93,7 +92,6 @@
                         <td>{{ $vehicle->type }}</td>
                         <td>{{ $vehicle->department }}</td>
                         <td>{{ $vehicle->registration_date }}</td>
-                        <td>{{ $vehicle->created_at->format('Y-m-d H:i')}}</td>
                     </tr>
                 @empty
                     <tr>

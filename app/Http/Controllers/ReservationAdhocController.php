@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\FlRequest;
 use Illuminate\Support\Facades\DB;
 
 class ReservationAdhocController extends Controller
@@ -13,6 +14,17 @@ class ReservationAdhocController extends Controller
         $statuses = ['IN PROGRESS', 'APPROVED', 'COMPLETED'];
 
         return view('reservation-management.adhoc.history', compact('types', 'statuses'));
+    }
+
+       public function create()
+    {
+        $purpose = [];
+        $pickup_state = [];
+        $booking_type = [];
+        $vehicle_request = [];
+        $departments = FlRequest::orderBy('created_at', 'desc')->get();
+
+        return view('reservation-management.adhoc.create_request', compact('departments', 'purpose', 'vehicle_request', 'booking_type', 'pickup_state'));
     }
 
     public function search(Request $request)

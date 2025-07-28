@@ -73,7 +73,7 @@ public function RegisterForm()
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $validated = $request->validate([
             'user_name' => 'required|unique:users,username',
@@ -89,7 +89,7 @@ public function RegisterForm()
         User::create($validated);
 
         // Optional: Log, notify, or email the plain password to the user
-        return redirect()->route('system-admin.user.register')->with('success', 'User registered with password: ');
+        return redirect()->route('system-admin.user')->with('success', 'User registered with password: ');
     }
 
 }

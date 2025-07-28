@@ -12,15 +12,18 @@
             font-family: Arial, sans-serif;
         }
 
-        #main {
+        #banner-header {
+            background-color: #2d0662;
+            padding: 0;
+            margin: 0;
             text-align: center;
-            margin-top: 5%;
         }
 
-        #logo {
-            width: 60%;
+        #banner-header img {
+            max-width: 100%;
             height: auto;
         }
+
 
         #box-login {
             width: 50%;
@@ -91,7 +94,7 @@
 </head>
 <body>
 
-    <div id="main">
+    <div id="banner-header">
         <img id="logo" src="{{ asset('images/bannervrms.png') }}" alt="VRMS Banner">
     </div>
 
