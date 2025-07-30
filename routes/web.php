@@ -28,8 +28,20 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/main', function () {
-    return view('main'); // Or your post-login home
+    return view('main');
 })->middleware('auth');
+
+Route::get('/front', function () {
+    return view('front'); 
+})->middleware('auth');
+
+Route::get('/test-redirect', function () {
+    return 'Redirect logic here';
+})->name('test.redirect');
+
+Route::get('/redirect', function () {
+    return 'Redirecting the route here';
+})->middleware(['auth', 'redirect.by.role'])->name('redirect.by.role');
 
 Route::get('/profile', function () {
     return view('profile');

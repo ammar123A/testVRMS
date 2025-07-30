@@ -28,7 +28,7 @@
         });
     </script>
 
-    <h4>Profile Student</h4>
+    <h4>Profile Staff</h4>
     <a href="{{ url('/change-password') }}">
         <button type="button">Change Password</button>
     </a>
