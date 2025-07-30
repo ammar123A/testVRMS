@@ -35,17 +35,13 @@ Route::get('/front', function () {
     return view('front'); 
 })->middleware('auth');
 
-Route::get('/test-redirect', function () {
-    return 'Redirect logic here';
-})->name('test.redirect');
+Route::get('/admin', function () {
+    return view('admin'); 
+})->middleware('auth');
 
 Route::get('/redirect', function () {
-    return 'Redirecting the route here';
 })->middleware(['auth', 'redirect.by.role'])->name('redirect.by.role');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile')->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/change-password', [PasswordController::class, 'showChangeForm'])->name('password.change');

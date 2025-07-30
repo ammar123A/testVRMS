@@ -24,7 +24,6 @@
             height: auto;
         }
 
-
         #box-login {
             width: 50%;
             margin: 2% auto;
@@ -114,6 +113,7 @@
                             <select id="usertype" name="role">
                                 <option value="STAFF">STAFF</option>
                                 <option value="STUDENT">STUDENT</option>
+                                <option value="ADMIN">ADMIN</option>
                             </select>
                         </td>
                     </tr>
@@ -157,15 +157,17 @@
 
             $('#usertype').on('change', function () {
                 var type = $(this).val();
-                $('#label-username').text(type === 'STAFF' ? 'Username:' : 'Matric No:');
-                $('#label-password').text(type === 'STAFF' ? 'Password:' : 'New IC/Passport No:');
 
-                if (type === 'STAFF') {
-                    $('#info').hide();
-                    changeInputType(document.getElementById('userpwd'), 'password');
-                } else {
+                if (type === 'STUDENT') {
+                    $('#label-username').text('Matric No:');
+                    $('#label-password').text('New IC/Passport No:');
                     $('#info').show();
                     changeInputType(document.getElementById('userpwd'), 'text');
+                } else {
+                    $('#label-username').text('Username:');
+                    $('#label-password').text('Password:');
+                    $('#info').hide();
+                    changeInputType(document.getElementById('userpwd'), 'password');
                 }
             }).trigger('change');
 

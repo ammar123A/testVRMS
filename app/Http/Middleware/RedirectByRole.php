@@ -27,6 +27,8 @@ class RedirectByRole
                 return redirect('/main');
             case 'staff':
                 return redirect('/front');
+            case 'admin':
+                return redirect('/admin');
             default:
                 return redirect('/');
         }
