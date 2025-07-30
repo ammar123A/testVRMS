@@ -8,7 +8,7 @@
                 <li><a href="{{ url('/create-request') }}">Create Reservation</a></li>
             </ul>
         </li>
-<!-- 
+
         <li><a>Fleet Management <i class="fa fa-caret-down"></i></a>
             <ul>
                 <li><a href="{{ url(path: '/allocation') }}">Create Allocation</a></li>
@@ -17,7 +17,7 @@
                 <li><a href="{{ url('/allocation/recommend/history') }}">Recommend History</a></li>
                 <li><a href="{{ url('/allocation/report/reservations-by-ptj') }}">List of Reservation by PTJ</a></li>
             </ul>
-        </li> -->
+        </li>
 
         <li><a href="#">Reservation Management <i class="fa fa-caret-down"></i></a>
             <ul>
