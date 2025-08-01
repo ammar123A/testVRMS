@@ -22,6 +22,7 @@
                         <option value="STUDENT">STUDENT</option>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Staff No</label>
                     <div class="input-group">
@@ -29,22 +30,26 @@
                         <button type="button" class="btn btn-secondary" id="checkAvailability">Check Availability</button>
                     </div>
                 </div>
-                <div class="mb-3">
+
+                <!-- <div class="mb-3">
                     <label>Requestor ID</label>
-                    <input type="text" name="user_name" class="form-control">
-                </div>
+                    <input type="text" name="username" class="form-control">
+                </div> -->
+
                 <div class="mb-3">
                     <label>Name</label>
                     <input type="text" name="em_number" class="form-control">
                 </div>
+
                 <div class="mb-3">
                     <label>Department / Faculty</label>
-                    <select name="dv_id" class="form-select">
+                    <select name="dept_faculty" class="form-select">
                         @foreach ($departments as $id => $name)
                             <option value="{{ $id }}">{{ strtoupper($name) }}</option>
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Email</label>
                     <input type="email" name="email" class="form-control">
@@ -64,14 +69,16 @@
                     <label>PTJ</label>
                     <select name="ptj" class="form-select">
                         @foreach ($departments as $id => $name)
-                            <option value="{{ $id }}">{{ $name }}</option>
+                            <option value="{{ $id }}">{{ strtoupper($name) }}</option>
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Program</label>
                     <input type="text" name="program" class="form-control">
                 </div>
+
                 <div class="mb-3">
                     <label>Purpose</label>
                     <select name="purpose" class="form-select">
@@ -80,6 +87,7 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Vehicle Request</label>
                     <select name="vehicle" class="form-select">
@@ -88,10 +96,12 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Special Request (Remark)</label>
                     <input type="text" name="model_purpose" class="form-control">
                 </div>
+
                 <div class="mb-3">
                     <label>Booking Type</label>
                     <select name="type" class="form-select">
@@ -100,6 +110,7 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Assembly / Pick Up Point</label>
                     <textarea name="assembly" class="form-control" rows="3"></textarea>
@@ -110,6 +121,7 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Destination</label>
                     <textarea name="destination" class="form-control" rows="3"></textarea>
@@ -119,13 +131,19 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label>Date Time Send/Fetch</label>
                     <div class="row g-2">
-                        <div class="col-md-3"><input type="date" name="date_pickup" class="form-control"></div>
-                        <div class="col-md-2"><input type="time" name="time_pickup" class="form-control"></div>
+                        <div class="col-md-3">
+                            <input type="date" name="date_pickup" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="time" name="time_pickup" class="form-control">
+                        </div>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <label>Supported Document (Ref. No)</label>
                     <input type="text" name="ref_no" class="form-control">
@@ -139,14 +157,16 @@
             <div class="card-body">
                 <div class="mb-3">
                     <input type="checkbox" name="passenger_jpu" value="1" class="form-check-input" id="passengerJPU">
-                    <label for="passengerJPU" class="form-check-label fw-bold text-dark text-decoration-underline">JAWATANKUASA PENGURUSAN UNIVERSITI</label>
+                    <label for="passengerJPU" class="form-check-label fw-bold text-dark text-decoration-underline">
+                        JAWATANKUASA PENGURUSAN UNIVERSITI
+                    </label>
                 </div>
+
                 <div class="mb-3">
                     <label>No. of Passenger</label>
                     <input type="number" name="passenger_number" class="form-control" min="1">
                 </div>
 
-                {{-- Passenger List --}}
                 <table class="table table-bordered">
                     <thead class="table-light">
                         <tr>
@@ -157,7 +177,7 @@
                         </tr>
                     </thead>
                     <tbody id="passenger-list">
-                        {{-- Dynamic rows using JS --}}
+                        {{-- Dynamic rows via JS --}}
                     </tbody>
                 </table>
 
@@ -172,7 +192,7 @@
     </form>
 </div>
 
-{{-- Optional JS for dynamic passenger --}}
+{{-- Optional JS --}}
 <script>
     document.getElementById('addPassenger').addEventListener('click', function () {
         const tbody = document.getElementById('passenger-list');

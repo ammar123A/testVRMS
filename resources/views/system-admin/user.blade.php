@@ -88,7 +88,7 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $user->username }}</td>
                 <td>{{ $user->name }}</td>
-                <td>{{ $user->department ?? '-' }}</td>
+                <td>{{ $user->faculty ?? '-' }}</td>
                 <td>{{ $user->role ?? '-' }}</td>
             </tr>
         @endforeach

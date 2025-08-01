@@ -29,19 +29,19 @@
             </div>
             <div class="col-md-3">
                 <label>Booking Type:</label>
-                <select name="type" class="form-control">
+                <select name="booking_type" class="form-control">
                     <option value="">ALL</option>
-                    @foreach($types as $type)
-                        <option value="{{ $type }}">{{ $type }}</option>
+                    @foreach($booking_type as $booking_type)
+                        <option value="{{ $booking_type }}">{{ $booking_type }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="col-md-3">
-                <label>Status:</label>
-                <select name="status" class="form-control">
+                <label>booking_status:</label>
+                <select name="booking_status" class="form-control">
                     <option value="">ALL</option>
-                    @foreach($statuses as $status)
-                        <option value="{{ $status }}">{{ $status }}</option>
+                    @foreach($booking_status as $booking_status)
+                        <option value="{{ $booking_status }}">{{ $booking_status }}</option>
                     @endforeach
                 </select>
             </div>

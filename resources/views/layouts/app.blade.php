@@ -30,7 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body style="background-color:#f8f9fa;" onload="updateClock(); setInterval('updateClock()', 1000);">
+<body style="background-color:#f8f9fa;">
 
     {{-- Header --}}
     <header class="bg-white border-bottom py-3 px-4 mb-4 shadow-sm d-flex align-items-center">

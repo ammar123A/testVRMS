@@ -44,11 +44,7 @@
                 <tr><th>Staff No. / New IC / Passport No.</th><td>{{ auth()->user()->em_id ?? '-' }}</td></tr>
                 <tr><th>Department / Faculty</th><td>{{ auth()->user()->department ?? '-' }} / {{ auth()->user()->faculty ?? '-' }}</td></tr>
                 <tr><th>Campus</th><td>{{ auth()->user()->campus ?? '-' }}</td></tr>
-                <tr><th>Handphone</th>
-                    <td>
-                        <input type="text" name="handphone" class="form-control" required>
-                    </td>
-                </tr>
+                <tr><th>Handphone</th><td>{{ auth()->user()->phone ?? '-' }} </td></tr>
                 <tr><th>Email</th><td><input type="email" name="officer_email" class="form-control" value="{{ auth()->user()->email ?? '' }}" required></td></tr>
             </table>
         </div>

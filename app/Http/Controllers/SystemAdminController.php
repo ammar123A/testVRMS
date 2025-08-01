@@ -76,7 +76,7 @@ public function RegisterForm()
         // dd($request->all());
 
         $validated = $request->validate([
-            'user_name' => 'required|unique:users,username',
+            'username' => 'required|unique:users,username',
             'name' => 'required',
             'em_id' => 'required',
             'email' => 'nullable|email',
@@ -84,12 +84,12 @@ public function RegisterForm()
             'role' => 'required|in:staff,student',
         ]);
 
-        $validated['password'] = Str::random(10);
+        $validated['password'] = Hash::make('default123');
 
         User::create($validated);
 
         // Optional: Log, notify, or email the plain password to the user
-        return redirect()->route('system-admin.user')->with('success', 'User registered with password: ');
+        return redirect()->back()->with('success', 'User registered with password: ');
     }
 
 }
