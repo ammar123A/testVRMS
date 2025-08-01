@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\FlRequest
@@ -45,6 +46,8 @@ use Illuminate\Support\Carbon;
  */
 class FlRequest extends Model
 {
+    use HasFactory;
+
     protected $table = 'fl_request';
 
     protected $primaryKey = 'request_id';

@@ -58,10 +58,11 @@ Route::get('/create-request', function () {
 
 
 // Route in web.php
-Route::post('/reservation/calculate-cost', [ReservationController::class, 'calculateCost'])->name('reservation.calculate-cost');
-Route::post('/reservation/booking-details', [ReservationController::class, 'saveBookingDetails'])->name('reservation.booking-details.save');
-Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
+// Route::post('/reservation/calculate-cost', [ReservationController::class, 'calculateCost'])->name('reservation.calculate-cost');
+// Route::post('/reservation/booking-details', [ReservationController::class, 'saveBookingDetails'])->name('reservation.booking-details.save');
+// Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 Route::get('/history', [ReservationController::class, 'history'])->name('reservation.history');
+Route::post('/create-request', [ReservationController::class, 'store'])->name('reservation.store');
 // Route::post('/reservation/save', [ReservationController::class, 'savePassenger'])->name('reservation.passenger.save');
 
 Route::prefix('/allocation')->name('allocation.')->group(function () {
@@ -76,11 +77,11 @@ Route::get('/fleet/allocation/{id}/edit', [AllocationController::class, 'edit'])
 Route::get('/allocation/recommend', [RecommendReservationController::class, 'index'])->name('recommend.index');
 Route::get('/allocation/recommend/history', [RecommendReservationController::class, 'history'])->name('fleet.history');
 
-Route::get('/reservation-management/reservation/create_request', [ReservationAdhocController::class, 'create'])->name('reservation.create');
-Route::get('/reservation-management/history', [ReservationAdhocController::class, 'index'])->name('reservation.history');
-Route::post('/reservation-management/reservation/store', [ReservationAdhocController::class, 'store'])->name('reservation.store');
-Route::get('/reservation-management/reservation/table', [ReservationAdhocController::class, 'RegisterTable'])->name('reservation.table');
-Route::get('/reservation-management/history/search', [ReservationAdhocController::class, 'search'])->name('reservation.history.search');
+// Route::get('/reservation-management/reservation/create_request', [ReservationAdhocController::class, 'create'])->name('reservation.create');
+// Route::get('/reservation-management/history', [ReservationAdhocController::class, 'index'])->name('reservation.history');
+// Route::post('/reservation-management/reservation/store', [ReservationAdhocController::class, 'store'])->name('reservation.store');
+// Route::get('/reservation-management/reservation/table', [ReservationAdhocController::class, 'RegisterTable'])->name('reservation.table');
+// Route::get('/reservation-management/history/search', [ReservationAdhocController::class, 'search'])->name('reservation.history.search');
 
 
 Route::get('/allocation/report/reservations-by-ptj', [ReportReservationController::class, 'showForm'])->name('reports.ptj.form');

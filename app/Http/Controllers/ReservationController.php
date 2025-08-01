@@ -1,94 +1,67 @@
 <?php
 
-namespace Tests\Feature;
+namespace App\Http\Controllers;
 
-use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\FlRequest;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
-use Tests\TestCase;
 
-class ReservationControllerTest extends TestCase
+class ReservationController extends Controller
 {
-    use RefreshDatabase;
-
-    /** @test */
-    public function index_page_loads_correctly()
+    
+    public function history(Request $request)
     {
-        $user = User::factory()->create();
+        $query = FlRequest::with('user');
 
-        $response = $this->actingAs($user)->get(route('reservation.index'));
+        // Filtering (optional)
+        if ($request->filled('req_id')) {
+            $query->where('request_id', $request->input('req_id'));
+        }
 
-        $response->assertStatus(200);
-        $response->assertViewIs('supervisor.vehicle.vehicle');
+        if ($request->filled('start_date') && $request->filled('end_date')) {
+            $query->whereBetween('reservation_date', [$request->start_date, $request->end_date]);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $reservations = $query->orderBy('created_at', 'desc')->get();
+
+        return view('reservation.history', compact('reservations'));
+    }
+    
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'purpose' => 'required|string',
+            'attention_to' => 'required|string',
+            'vote_ptj' => 'required|string',
+            'dept_faculty' => 'required|string',
+            'officer_email' => 'required|email',
+            'vehicle_request' => 'required|string',
+            'no_vehicle' => 'required|integer',
+            'program' => 'required|string',
+            'booking_type' => 'required|string',
+            'pickup_point' => 'required|string',
+            'pickup_state' => 'required|string',
+            'destination' => 'required|string',
+            'destination_state' => 'required|string',
+            'start_date' => 'required|date',
+            'start_time' => 'required',
+            'end_date' => 'required|date',
+            'end_time' => 'required',
+            'agree' => 'required|boolean',
+        ]);
+
+        $validated['user_id'] = Auth::id();
+        $validated['reservation_date'] = now();
+        $validated['status'] = 'PENDING';
+
+        FlRequest::create($validated);
+
+        return redirect()->back()->with('success', 'Reservation saved successfully.');
     }
 
-    /** @test */
-    public function user_can_submit_reservation_form()
-    {
-        $user = User::factory()->create();
-
-        $this->actingAs($user);
-
-        $response = $this->post(route('reservation.store'), [
-            'purpose' => 'Business Trip',
-            'attention_to' => 'Dr. Ahmad',
-            'vote_ptj' => '12345',
-            'dept_faculty' => 'Engineering',
-            'officer_email' => 'officer@example.com',
-            'vehicle_request' => 'SUV',
-            'no_vehicle' => 2,
-            'program' => 'Field Visit',
-            'booking_type' => 'Adhoc',
-            'pickup_point' => 'Main Gate',
-            'pickup_state' => 'Johor',
-            'destination' => 'Putrajaya',
-            'destination_state' => 'WP Putrajaya',
-            'start_date' => '2025-08-10',
-            'start_time' => '08:00',
-            'end_date' => '2025-08-11',
-            'end_time' => '17:00',
-            'agree' => true,
-        ]);
-
-        $response->assertRedirect();
-        $response->assertSessionHas('success', 'Reservation saved successfully.');
-
-        $this->assertDatabaseHas('fl_requests', [
-            'user_id' => $user->id,
-            'purpose' => 'Business Trip',
-            'status' => 'PENDING',
-        ]);
-    }
-
-    /** @test */
-    public function reservation_history_filters_correctly()
-    {
-        $user = User::factory()->create();
-        $this->actingAs($user);
-
-        // Create reservations with varying data
-        FlRequest::factory()->create([
-            'user_id' => $user->id,
-            'status' => 'PENDING',
-            'reservation_date' => '2025-08-01',
-        ]);
-
-        FlRequest::factory()->create([
-            'user_id' => $user->id,
-            'status' => 'APPROVED',
-            'reservation_date' => '2025-08-02',
-        ]);
-
-        $response = $this->get(route('reservation.history', [
-            'status' => 'PENDING',
-            'start_date' => '2025-08-01',
-            'end_date' => '2025-08-10',
-        ]));
-
-        $response->assertStatus(200);
-        $response->assertViewHas('reservations', function ($reservations) {
-            return $reservations->count() === 1 && $reservations->first()->status === 'PENDING';
-        });
-    }
 }
+
