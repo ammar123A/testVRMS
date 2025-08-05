@@ -13,7 +13,10 @@ class FlRequestFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
+            'request_id' => 'REQ' . $this->faker->unique()->numerify('####'),
+            'user_id' => User::factory()->state([
+                'user_type' => $this->faker->randomElement(['staff', 'student']),
+            ]),
             'purpose' => $this->faker->sentence,
             'attention_to' => $this->faker->name,
             'vote_ptj' => $this->faker->numerify('#####'),

@@ -18,10 +18,6 @@ class RecommendReservationController extends Controller
             $query->where('request_id', $request->req_id);
         }
 
-        if ($request->filled('wr_id')) {
-            $query->where('wr_id', $request->wr_id);
-        }
-
         if ($request->filled('requestor_type')) {
             $query->whereHas('user', function ($q) use ($request) {
                 $q->where('user_type', $request->requestor_type);
@@ -61,10 +57,6 @@ class RecommendReservationController extends Controller
 
         if ($request->filled('req_id')) {
             $query->where('request_id', $request->req_id);
-        }
-
-        if ($request->filled('wr_id')) {
-            $query->where('wr_id', $request->wr_id);
         }
 
         if ($request->filled('date_1') && $request->filled('date_2')) {

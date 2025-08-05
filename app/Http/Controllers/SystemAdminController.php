@@ -24,8 +24,8 @@ class SystemAdminController extends Controller
             $query->where('role', $request->role);
         }
 
-        if ($request->filled('site_id')) {
-            $query->where('site_id', $request->site_id);
+        if ($request->filled('faculty')) {
+            $query->where('faculty', $request->faculty);
         }
 
         $users = $query->get();
@@ -61,13 +61,13 @@ public function RegisterForm()
             $query->where('role', $request->role);
         }
 
-        if ($request->filled('site_id')) {
-            $query->where('site_id', $request->site_id);
+        if ($request->filled('faculty')) {
+            $query->where('faculty', $request->faculty);
         }
 
         $users = $query->get();
 
-        return view('system-admin.partials.user_table', compact('users'));
+        return view('system-admin.user', compact('users'));
     }
 
 

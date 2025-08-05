@@ -100,10 +100,12 @@ Route::get('/reports/list-by-ptj-bus', [ReportReservationController::class, 'lis
 Route::get('/reports/driver-monthly-trip', [ReportReservationController::class, 'driverMonthlyTrip'])->name('reports.driverMonthlyTrip');
 Route::get('/reports/vehicle-monthly-usage', [ReportReservationController::class, 'vehicleMonthlyUsage'])->name('reports.vehicle_monthly_usage');
 Route::get('/reports/monthly-chart', [ReportReservationController::class, 'monthlyChartedByPtj'])->name('reports.monthly_charted_by_ptj');
+
 Route::get('/reports/work-order-details', [ReportReservationController::class, 'workOrderDetails'])->name('reports.work_order_details');
 // Route::post('/reports/work-order-details/ajax', [ReportController::class, 'ajaxWorkOrderDetails'])->name('reports.work_order_details.ajax');
 Route::get('/reports/work-order-charted', [ReportReservationController::class, 'workOrderCharted'])->name('reports.work_order_charted');
 Route::post('/reports/work-order-charted/ajax', [ReportReservationController::class, 'ajaxWorkOrderCharted'])->name('reports.work_order_charted.ajax');
+
 Route::get('/reports/charted-trip', [ReportReservationController::class, 'chartedTripReport'])->name('reports.charted_trip');
 Route::post('/reports/charted-trip/ajax', [ReportReservationController::class, 'ajaxChartedTrip'])->name('reports.charted_trip.ajax');
 

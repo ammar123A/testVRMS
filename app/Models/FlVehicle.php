@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class FlVehicle extends Model
 {
+    use HasFactory;
+    
     protected $table = 'fl_vehicle';
     protected $primaryKey = 'vehicle_id';
     public $timestamps = false;
