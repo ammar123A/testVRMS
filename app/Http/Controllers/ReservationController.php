@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
-    
+
     public function history(Request $request)
     {
         $query = FlRequest::with('user');
@@ -63,5 +63,25 @@ class ReservationController extends Controller
         return redirect()->back()->with('success', 'Reservation saved successfully.');
     }
 
+    public function index(Request $request)
+    {
+        $query = FlRequest::with('user');
+
+        if ($request->filled('req_id')) {
+            $query->where('request_id', $request->input('req_id'));
+        }
+
+        if ($request->filled('start_date') && $request->filled('end_date')) {
+            $query->whereBetween('reservation_date', [$request->start_date, $request->end_date]);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $reservations = $query->orderBy('created_at', 'desc')->get();
+
+        return view('system-admin.reservations.index', compact('reservations'));
+    }
 }
 

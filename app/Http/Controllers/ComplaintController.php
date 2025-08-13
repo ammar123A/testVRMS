@@ -62,6 +62,15 @@ class ComplaintController extends Controller
         return view('complaint.history', compact('vehicles'));
     }
 
+    public function index()
+    {
+
+        $complaints = FlVehicle::latest()->get();
+        $complaints = FlComplaint::latest()->get(); 
+
+        return view('system-admin.complaint.admin-index', compact('complaints'));
+    }
+
     public function historySearch(Request $request)
     {
         $query = FlComplaint::query()->orderBy('created_at', 'desc');

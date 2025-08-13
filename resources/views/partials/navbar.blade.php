@@ -83,6 +83,18 @@
                     <li><a href="{{ url('/system-admin/user') }}">User</a></li>
                 </ul>
             </li>
+
+            <li><a href="#">Reservation <i class="fa fa-caret-down"></i></a>
+                <ul>
+                    <li><a href="{{ url('/admin/reservation') }}">View Reservation</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Complaint <i class="fa fa-caret-down"></i></a>
+                <ul>
+                    <li><a href="{{ url('/admin/complaint') }}">View Complaint</a></li>
+                </ul>
+            </li>
         @endif
 
 

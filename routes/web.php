@@ -63,6 +63,8 @@ Route::get('/create-request', function () {
 // Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 Route::get('/history', [ReservationController::class, 'history'])->name('reservation.history');
 Route::post('/create-request', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/admin/reservation', [ReservationController::class, 'index'])->name('reservation.index');
+Route::get('/admin/reservation/create', [ReservationController::class, 'creating'])->name('reservation.creating');
 // Route::post('/reservation/save', [ReservationController::class, 'savePassenger'])->name('reservation.passenger.save');
 
 Route::prefix('/allocation')->name('allocation.')->group(function () {
@@ -144,6 +146,7 @@ Route::post('/complaint/store', [ComplaintController::class, 'store'])->name('co
 Route::get('/complaint/history', [ComplaintController::class, 'history'])->name('complaint.history');
 Route::get('/vehicle/details/{id}', [ComplaintController::class, 'vehicleDetails'])->name('vehicle.details');
 Route::get('/complaint/history/search', [ComplaintController::class, 'histroysearch'])->name('complaint.history.search');
+Route::get('/admin/complaint', [ComplaintController::class, 'index'])->name('complaint.index');
 
 Route::get('/maintenance/verify-r/history', [ComplaintController::class, 'verifyHistory'])->name('maintenance.verify.history');
 Route::get('/maintenance/verify-wr/history', [ComplaintController::class, 'verifyWrHistory'])->name('maintenance.verifywr.history');
@@ -160,6 +163,7 @@ Route::get('/system-admin/user', [SystemAdminController::class, 'userPage'])->na
 Route::get('/system-admin/user/ajax', [SystemAdminController::class, 'fetchUserData'])->name('system-admin.user.ajax');
 Route::get('/system-admin/user/register', [SystemAdminController::class, 'registerForm'])->name('system-admin.user.register');
 Route::post('/system-admin/user/store', [SystemAdminController::class, 'store'])->name('system-admin.user.store');
+
 
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('main');
 

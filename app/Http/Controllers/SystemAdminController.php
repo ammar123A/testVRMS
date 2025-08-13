@@ -35,14 +35,14 @@ class SystemAdminController extends Controller
         return view('system-admin.user', compact('users', 'roles'));
     }
 
-public function RegisterForm()
-{
-    $users = User::orderBy('id', 'desc')->get();
+    public function RegisterForm()
+    {
+        $users = User::orderBy('id', 'desc')->get();
 
-    $roles = ['staff', 'student'];
+        $roles = ['staff', 'student'];
 
-    return view('system-admin.user-register', compact('users', 'roles'));
-}
+        return view('system-admin.user-register', compact('users', 'roles'));
+    }
 
 
     public function fetchUserData(Request $request)
