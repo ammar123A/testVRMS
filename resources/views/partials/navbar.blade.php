@@ -10,8 +10,8 @@
         @if (session('FLEET.user_type') === 'student')
             <li><a href="#">Reservation <i class="fa fa-caret-down"></i></a>
                 <ul>
-                    <li><a href="{{ url('/history') }}">History</a></li>
-                    <li><a href="{{ url('/create-request') }}">Create Reservation</a></li>
+                    <li><a href="{{ url('reservation/history') }}">History</a></li>
+                    <li><a href="{{ url('reservation/create') }}">Create Reservation</a></li>
                 </ul>
             </li>
         @endif

@@ -61,8 +61,11 @@ Route::get('/create-request', function () {
 // Route::post('/reservation/calculate-cost', [ReservationController::class, 'calculateCost'])->name('reservation.calculate-cost');
 // Route::post('/reservation/booking-details', [ReservationController::class, 'saveBookingDetails'])->name('reservation.booking-details.save');
 // Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
-Route::get('/history', [ReservationController::class, 'history'])->name('reservation.history');
-Route::post('/create-request', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+Route::get('/reservation/history', [ReservationController::class, 'history'])->name('reservation.history');
+Route::get('/system-admin/reservations', [ReservationController::class, 'index'])->name('system.reservations.index');
 Route::get('/admin/reservation', [ReservationController::class, 'index'])->name('reservation.index');
 Route::get('/admin/reservation/create', [ReservationController::class, 'creating'])->name('reservation.creating');
 // Route::post('/reservation/save', [ReservationController::class, 'savePassenger'])->name('reservation.passenger.save');
