@@ -1,61 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# VRMS.my
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a modern full-stack web sytem powered by **Laravel**, **Blade**, and **Livewire**. It also integrates UI libraries like **Bootstrap** to enhance the user experience and simplify frontend development.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Before setting up the project, ensure you have the following tools installed on your machine:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **PHP 8.4+**
+-   **Composer**: PHP dependency manager
+-   **Node.js 16+**: JavaScript runtime for building assets
+-   **NPM**: Package manager for Node.js dependencies
+-   **Oracle Database**: Relational database
+-   **Postgres**: Temporary database
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Additionally, this application uses the following libraries:
 
-## Learning Laravel
+-   **Bootstrap**: https://getbootstrap.com/
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Setup / Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Clone the Repository
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Clone the repository to your local machine:
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/ammar123A/testVRMS
+cd VRMS_Upgrade
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Install Backend Dependencies (Laravel)
 
-### Premium Partners
+Install the PHP dependencies using Composer:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+```
 
-## Contributing
+### 3. Install Frontend Dependencies (blade.php)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Navigate to the frontend directory and install the JavaScript dependencies:
 
-## Code of Conduct
+```bash
+npm install
+# or
+yarn install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Set Up Environment Variables
 
-## Security Vulnerabilities
+Copy the `.env.example` file to create a `.env` file:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+```
 
-## License
+Configure your `.env` file with the necessary database credentials and other environment settings.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Generate Application Key
+
+Generate the Laravel application key:
+
+```bash
+php artisan key:generate
+```
+
+### 6. Run Migrations
+
+Run the database migrations to set up the schema:
+
+```bash
+php artisan migrate
+```
+
+### 7. Start Development Server
+
+Start the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+For the blade.php frontend, you can compile assets using:
+
+```bash
+npm run dev
+```
+
+Now, your app should be running on `http://localhost:8000` (or whichever port you configured).
+
+## Coding Standards
+
+We adhere to a set of coding standards and practices to ensure the consistency and quality of the codebase:
+
+### 1. **JavaScript, HTML / Livewire Coding Standards**
+
+-   **Naming Conventions**: Use **camelCase** for variable and function names.
+-   **Component Names**: Use **PascalCase** for blade component names (e.g., `main.blade.php`).
+-   **Single File Components**: Always use `.blade.php` extension for components.
+-   **Props Naming**: Use **camelCase** for props, but when passing props to custom components, use **kebab-case** (e.g., `<my-component :my-prop="'{{ $title }}'" :another-value="{{ $count }}" />`).
+
+### 2. **PHP / Laravel Coding Standards**
+
+-   **Naming Conventions**: Use **camelCase** for variable names, **PascalCase** for class names.
+-   **Controller Methods**: Methods should be **snake_case** and follow the RESTful convention (e.g., `getUser`, `createPost`).
+-   **Model Names**: Always use singular, **PascalCase** names (e.g., `User`, `Post`).
+-   **Routes**: Use **snake_case** for route names and route variables (e.g., `user_posts`).
+-   **Database Column Names**: Use **snake_case** for database column names.
+-   **Indentation**: Use **4 spaces** for indentation, not tabs.
+-   **Lines Length**: Lines of code should not exceed **120 characters**.
+
+### 3. **Code Formatting**
+
+-   Use **Prettier** for JavaScript and Livewire formatting.
+    -   Install Prettier plugin for your code editor.
+    -   Run `npx prettier --write .` to format your code automatically.
+-   Use **PHPIntelephense** for PHP code formatting.
