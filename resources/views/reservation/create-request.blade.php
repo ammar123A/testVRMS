@@ -3,8 +3,7 @@
 @section('content')
 <style>
     :root{
-        /* Primary = LIGHT BLUE */
-        --purple:#1e88e5;        /* used by buttons/focus (kept var name for compatibility) */
+        --purple:#1e88e5;
         --purple-700:#1565c0;
         --border:#e5e7eb;
         --muted:#6b7280;
@@ -24,15 +23,14 @@
     .btn-outline{
         border:1px solid var(--border); background:#fff; padding:6px 10px; border-radius:8px; cursor:pointer;
     }
-    .btn-outline:hover{ background:#edf6ff; } /* soft blue hover */
+    .btn-outline:hover{ background:#edf6ff; } 
 
-    /* Accordion */
     .section-title{
         font-weight:700;
-        background:#eaf4ff;                 /* LIGHT BLUE header */
+        background:#eaf4ff;
         padding:10px 14px;
         margin-top:16px;
-        border:1px solid #cfe5ff;           /* blue border */
+        border:1px solid #cfe5ff;
         border-radius:10px 10px 0 0;
         cursor:pointer;
         position:relative;
@@ -48,24 +46,21 @@
         transform:translateY(-50%) rotate(0deg);
     }
     .section-content{
-        border:1px solid #cfe5ff;           /* blue border */
+        border:1px solid #cfe5ff;
         border-top:none;
         padding:16px; display:none; border-radius:0 0 10px 10px; background:#fff;
     }
     .section-content.show{ display:block; }
 
-    /* Forms */
     .form-label, .col-form-label{ font-weight:600; color:#374151; }
     .hint{ font-size:12px; color:var(--muted); margin-top:4px; }
     .hint.ok{ color:var(--ok); }
     .hint.error{ color:var(--danger); }
     .invalid-feedback{ color:var(--danger); }
 
-    /* Date/time helper line */
     .dt-row{ display:flex; flex-wrap:wrap; gap:12px; }
     .dt-chunk{ flex:1 1 220px; }
 
-    /* Footer actions */
     .actions{ text-align:center; margin:18px 0; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
     .btn-primary{
         background:var(--purple); color:#fff; border:1px solid #0f4fa8;
@@ -77,7 +72,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // ----- Accordion -----
     document.querySelectorAll('.section-title').forEach(btn => {
         btn.setAttribute('role','button');
         btn.setAttribute('tabindex','0');
@@ -92,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
-    // Auto-open first; open all if errors exist
     const firstContent = document.querySelector('.section-content');
     if(firstContent) {
         firstContent.classList.add('show');
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.section-title').forEach(t => t.setAttribute('aria-expanded','true'));
     }
 
-    // Expand/Collapse all
     const expandAllBtn = document.getElementById('expandAll');
     const collapseAllBtn = document.getElementById('collapseAll');
     if(expandAllBtn) expandAllBtn.addEventListener('click', () => {
@@ -116,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.section-title').forEach(t => t.setAttribute('aria-expanded','false'));
     });
 
-    // ----- Date/time validation + duration -----
     const startDate = document.querySelector('input[name="start_date"]');
     const startTime = document.querySelector('input[name="start_time"]');
     const endDate   = document.querySelector('input[name="end_date"]');
@@ -151,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!s || !e){
             dtMsg.textContent = '';
             dtMsg.className = 'hint';
-            ok = false; // wait until complete
+            ok = false; 
         }else if(e <= s){
             dtMsg.textContent = 'End must be after start.';
             dtMsg.className = 'hint error';
@@ -162,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
             dtMsg.className = 'hint ok';
         }
 
-        // enable only if agree checked and dt ok
         if(submitBtn){
             const canSubmit = ok && (agreeBox?.checked);
             submitBtn.disabled = !canSubmit;
@@ -177,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     agreeBox?.addEventListener('change', validateDT);
     validateDT();
 
-    // ----- Character counters -----
     addCounter('program',  120);
     addCounter('purpose',  160);
     addCounter('remark',   160);
